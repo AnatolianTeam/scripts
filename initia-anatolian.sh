@@ -94,7 +94,7 @@ case $choice in
     sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 150/g' $HOME/.initia/config/config.toml
     sed -i 's/max_num_outbound_peers =.*/max_num_outbound_peers = 150/g' $HOME/.initia/config/config.toml
 
-    # Enabling Prometheus
+ # Enabling Prometheus
     echo "Enabling Prometheus..."
     sed -i 's|^prometheus *=.*|prometheus = true|' $HOME/.initia/config/config.toml
 
@@ -134,20 +134,20 @@ case $choice in
     # Creating the Service File
     echo "Creating the service file..."
     tee /etc/systemd/system/initiad.service > /dev/null << EOF
-    [Unit]
-    Description=Initia Node
-    After=network-online.target
+[Unit]
+Description=Initia Node
+After=network-online.target
 
-    [Service]
-    User=$USER
-    ExecStart=$(which initiad) start
-    Restart=on-failure
-    RestartSec=3
-    LimitNOFILE=65535
+[Service]
+User=$USER
+ExecStart=$(which initiad) start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
 
-    [Install]
-    WantedBy=multi-user.target
-    EOF
+[Install]
+WantedBy=multi-user.target
+EOF
 
     # Enabling and Starting the Service
     echo "Enabling and starting the service..."
@@ -181,7 +181,7 @@ case $choice in
     echo "Snapshot is complete."
     ;;
 
-  3)
+ 3)
     # State-Sync
     echo "State-Sync option is selected."
     systemctl stop initiad
@@ -209,7 +209,7 @@ case $choice in
     echo "State-Sync is complete."
     ;;
 
-4)
+  4)
     # Delete Node Completely
     echo "Delete Node option is selected."
     systemctl stop initiad && \
@@ -224,7 +224,7 @@ case $choice in
     echo "Node removal is complete."
     ;;
 
-*)
+  *)
     echo "Invalid option. Please select a valid option (1, 2, 3, or 4)."
     ;;
 
