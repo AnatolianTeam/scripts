@@ -1,3 +1,3 @@
 # Scripts
 
-### There are scripts prepared by Anatolian Team in this area.
+There are scripts prepared by Anatolian Team in this area.
