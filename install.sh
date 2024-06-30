@@ -41,4 +41,4 @@ source $HOME/.bash_profile
 
 cd $HOME
 
-echo -e "\e[1m\e[32mFINISH \e[0m" && sleep 1
+echo -e "\e[1m\e[32mCompleted\e[0m" && sleep 1
